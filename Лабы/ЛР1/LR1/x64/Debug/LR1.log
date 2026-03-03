@@ -1,0 +1,8 @@
+﻿  Assembling LR1.asm...
+LR1.asm(1): error A2008: syntax error : .
+LR1.asm(2): error A2008: syntax error : .
+LR1.asm(3): error A2008: syntax error : .
+LR1.asm(60): error A2008: syntax error : invoke
+LR1.asm(61): error A2008: syntax error : Start
+LR1.asm(61): error A2088: END directive required at end of file
+C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\BuildCustomizations\masm.targets(70,5): error MSB3721: выход из команды "ml64.exe /c /nologo /Zi /Fo"x64\Debug\LR1.obj" /W3 /errorReport:prompt  /TaLR1.asm" с кодом "1".
