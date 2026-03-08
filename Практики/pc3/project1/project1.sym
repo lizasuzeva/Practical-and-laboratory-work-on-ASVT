@@ -1,0 +1,127 @@
+__Lrdata 36 FFFFFFCD DATA
+_lcd_data 179 0 CODE
+__Hrbss 36 0 DATA
+__Lrbss 20 0 DATA
+strx_xcopy 76 0 CODE
+?a_delay 32 0 DATA
+__Birdata 3 FFFFFFCD DATA
+__Hirdata 36 FFFFFFCD DATA
+__Lirdata 36 FFFFFFCD DATA
+powerup CB 0 CODE
+__Htext 36 0
+__Ltext 36 0
+_lcd_print 186 0 CODE
+_erase_word 1B0 0 CODE
+strx_copy 8C 0 CODE
+__Hcode 36 0
+__Lcode 36 0
+ldb_r0 12 0 CODE
+ldc_r0 E 0 CODE
+__Hdata 111 0 CODE
+__Hconst 100 0 CODE
+__Ldata 100 0 CODE
+__Lconst 100 0 CODE
+__Bbss 36 0 XDATA
+ldb_r1 1F 0 CODE
+ldc_r1 1B 0 CODE
+__Hbss 36 0 XDATA
+__Hstrings 100 0 CODE
+ldb_r2 2C 0 CODE
+ldc_r2 28 0 CODE
+__Lbss 36 0 XDATA
+__Lstrings 100 0 CODE
+ldb_r3 39 0 CODE
+ldc_r3 35 0 CODE
+ldb_r4 46 0 CODE
+ldc_r4 42 0 CODE
+ldb_r5 53 0 CODE
+_delay 111 0 CODE
+ldc_r5 4F 0 CODE
+str_xcopy 76 0 CODE
+__S0 247 0
+ldb_r6 60 0 CODE
+ldc_r6 5C 0 CODE
+ldb_r7 6D 0 CODE
+ldc_r7 69 0 CODE
+start1 B7 0 CODE
+__Hnvram 36 0 XDATA
+small_model 1 0
+__Lnvram 36 0 XDATA
+?a_lcd_print 32 0 DATA
+ldc_byte 3 0 CODE
+__Hheap 36 0 XDATA
+__Lheap 36 0 XDATA
+_main 1D8 0 CODE
+str_copy 8C 0 CODE
+?a_erase_word 32 0 DATA
+?a_main 20 0 DATA
+_exit C8 0 CODE
+start 0 0 CODE
+intlevel0 0 0
+strx_load 8C 0 CODE
+__Brbit 20 20 BITSEG
+str_load 8C 0 CODE
+__Hrbit 0 20 BITSEG
+intlevel1 0 0
+__Hvectors 3 0 CODE
+__Lrbit 0 20 BITSEG
+__Lvectors 0 0 CODE
+__Bidata 36 0 DATA
+__Hidata 36 0 DATA
+_lcd_cmd 16C 0 CODE
+__Lidata 36 0 DATA
+stack_internal 1 0
+__Brdata 3 FFFFFFCD DATA
+__Hrdata 36 FFFFFFCD DATA
+%segments
+vectors 0 CD CODE
+rbit 0 15 BITSEG
+data 100 246 CODE
+%locals
+Z:\main_0.obj
+C:\Users\user\DOCUME~1\NATION~1\CIRCUI~2.0\MCUWOR~1\pc3\project1\main.c
+4 111 0 CODE
+6 113 0 CODE
+7 128 0 CODE
+6 153 0 CODE
+8 169 0 CODE
+11 16C 0 CODE
+12 16E 0 CODE
+13 170 0 CODE
+14 173 0 CODE
+15 176 0 CODE
+18 179 0 CODE
+19 17B 0 CODE
+20 17D 0 CODE
+21 180 0 CODE
+22 183 0 CODE
+25 186 0 CODE
+26 18C 0 CODE
+28 18E 0 CODE
+29 19A 0 CODE
+26 1A2 0 CODE
+31 1AD 0 CODE
+34 1B0 0 CODE
+37 1B2 0 CODE
+39 1BC 0 CODE
+40 1C3 0 CODE
+39 1C8 0 CODE
+41 1D5 0 CODE
+44 1D8 0 CODE
+49 1DA 0 CODE
+53 1E9 0 CODE
+55 1F8 0 CODE
+56 1FD 0 CODE
+57 202 0 CODE
+60 207 0 CODE
+61 20C 0 CODE
+63 213 0 CODE
+67 216 0 CODE
+68 21E 0 CODE
+70 225 0 CODE
+72 228 0 CODE
+74 22F 0 CODE
+76 235 0 CODE
+77 23F 0 CODE
+65 242 0 CODE
+79 244 0 CODE

@@ -1,0 +1,97 @@
+#include <8051.h>   // ?????????? ???????????????? 8051
+
+// ??????? ????? ??????????????? ??????????
+unsigned char code massiv[11] = {
+    0xC0, // 0
+    0xF9, // 1
+    0xA4, // 2
+    0xB0, // 3
+    0x99, // 4
+    0x92, // 5
+    0x82, // 6
+    0xF8, // 7
+    0x80, // 8
+    0x90, // 9
+    0xFF
+};
+
+void main(void) {
+
+    unsigned char digit = 0;       
+    unsigned char step = 1;        
+    unsigned char counting = 0;    
+    unsigned char pause = 0;       
+    unsigned char last_digit = 0;  
+
+    unsigned char p1_state = 0;
+    unsigned char p1_prev = 0;
+
+    unsigned char p3_state = 0;
+    unsigned char p3_prev = 0;
+
+    unsigned int i;
+
+    P2 = massiv[0];
+
+    while(1) {
+
+        // ---------- ?????? P1.0 (?????? ? 0) ----------
+        p1_state = (P1 & 0x01) ? 0 : 1;
+
+        if(p1_state == 1 && p1_prev == 0) {
+
+            for(i=0;i<100;i++); // ???????????
+
+            if((P1 & 0x01) == 0) {
+
+                digit = 0;          // ?????? ? 0
+                last_digit = 0;
+                pause = 0;          
+                counting = 1;       // ???????? ????
+            }
+        }
+
+        p1_prev = p1_state;
+
+
+        // ---------- ?????? P3.0 (????? / ??????????) ----------
+        p3_state = (P3 & 0x01) ? 0 : 1;
+
+        if(p3_state == 1 && p3_prev == 0) {
+
+            for(i=0;i<100;i++); // ???????????
+
+            if((P3 & 0x01) == 0) {
+
+                pause = !pause;   // ??????????? ?????
+
+                if(pause) {
+                    last_digit = digit; // ????????? ??????? ?????
+                } else {
+                    digit = last_digit; // ?????????? ? ???
+                }
+            }
+        }
+
+        p3_prev = p3_state;
+
+
+        // ---------- ?????? ???????? ----------
+        if(counting && !pause) {
+
+            P2 = massiv[digit];
+
+            for(i=0;i<100;i++);
+
+            digit = digit + step;
+
+            if(digit >= 10) digit = 0;
+        }
+        else if(pause) {
+
+            P2 = massiv[last_digit];
+
+            for(i=0;i<100;i++);
+        }
+    }
+}
