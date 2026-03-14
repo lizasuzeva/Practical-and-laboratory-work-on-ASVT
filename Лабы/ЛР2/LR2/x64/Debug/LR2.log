@@ -1,0 +1,5 @@
+﻿  Assembling LR2.asm...
+LR2.asm(1): error A2044: invalid character in file
+LR2.asm(9): error A2008: syntax error : mask
+LR2.asm(34): error A2081: missing operand after unary operator
+C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\BuildCustomizations\masm.targets(70,5): error MSB3721: выход из команды "ml64.exe /c /nologo /Zi /Fo"x64\Debug\LR2.obj" /W3 /errorReport:prompt  /TaLR2.asm" с кодом "1".
