@@ -1,0 +1,51 @@
+[p STACK_INTERNAL MODEL_0 SPACEOPT AUTOSTATIC NOTREENT ]
+"7 C:\Users\user\DOCUME~1\NATION~1\CIRCUI~2.0\MCUWOR~1\pr5\pr5\main.c
+[v _timer `ui  1 e 2 0 ]
+"10
+[v _lcd_enable `(v  1 e 0 0 ]
+{
+"13
+} 0
+"15
+[v _lcd_cmd `(v  1 e 0 0 ]
+{
+[v _cmd `uc  1 a 1 r5 ]
+"20
+} 0
+"22
+[v _lcd_data `(v  1 e 0 0 ]
+{
+[v _dat `uc  1 a 1 r5 ]
+"27
+} 0
+"29
+[v _lcd_init `(v  1 e 0 0 ]
+{
+"34
+} 0
+"36
+[v _lcd_string `(v  1 e 0 0 ]
+{
+[v _s `*c  1 a 2 WR2 ]
+"37
+[v _s `*c  1 a 2 0 ]
+"38
+} 2
+"42
+[v _get_key `(c  1 e 1 0 ]
+{
+"44
+[v _val `uc  1 a 1 0 ]
+"83
+} 1
+"87
+[v _main `(v  1 e 0 0 ]
+{
+"89
+[v _key `c  1 a 1 0 ]
+"90
+[v _last_key `c  1 a 1 1 ]
+"91
+[v _pos `uc  1 a 1 2 ]
+"120
+} 3

@@ -1,0 +1,664 @@
+
+
+HI-TECH Software 8051 Macro Assembler V9.60                                Page 1
+                                                       Mon Mar 23 18:54:45 2026
+
+     1                           	psect	idata,class=DATA,space=1,limit=080h
+     2                           	psect	irdata,class=DATA,limit=080h
+     3                           	global	_lcd_enable
+     4                           	signat	_lcd_enable,88
+     5                           	global	stack_internal
+     6                           	psect	text,class=CODE
+     7                           	psect	text
+     8                           	file	"C:\Users\user\DOCUME~1\NATION~1\CIRCUI~2.
+                                 0\MCUWOR~1\pr5\pr5\main.c"
+     9                           	line	10
+    10  0010C                     _lcd_enable:
+    11  0010C  80 05              	j	f21
+    12  0010E                     f20:
+    13                           ;main.c: 10: void lcd_enable() {
+    14                           
+    15                           ;main.c: 11: (*((volatile unsigned char*)0xA0)) 
+                                 |= 0x01;
+    16                           
+    17                           	line	11
+    18  0010E  D2 A0              	setb	p2.0
+    19                           ;main.c: 12: (*((volatile unsigned char*)0xA0)) 
+                                 &= ~0x01;
+    20                           
+    21                           	line	12
+    22  00110  C2 A0              	clr	p2.0
+    23                           ;main.c: 13: }
+    24                           
+    25                           	line	13
+    26  00112                     l1:
+    27  00112  22                 	ret
+    28  00113                     f21:
+    29  00113  80 F9              	j	f20
+    30  0000                     f22	equ	0
+    31                           ;	param _cmd assigned to r5 on entry
+    32                           	global	_lcd_cmd
+    33                           	signat	_lcd_cmd,4216
+    34                           	line	15
+    35  00115                     _lcd_cmd:
+    36  00115  80 0A              	j	f31
+    37  00117                     f30:
+    38                           ;main.c: 15: void lcd_cmd(unsigned char cmd) {
+    39                           
+    40                           ;main.c: 16: (*((volatile unsigned char*)0x80)) 
+                                 = cmd;
+    41                           
+    42                           	line	16
+    43  00117  8D 80              	mov	0+080h,r5
+    44                           ;main.c: 17: (*((volatile unsigned char*)0xA0)) 
+                                 &= ~0x02;
+    45                           
+    46                           	line	17
+    47  00119  C2 A1              	clr	p2.1
+    48                           ;main.c: 18: (*((volatile unsigned char*)0xA0)) 
+                                 &= ~0x04;
+    49                           
+    50                           	line	18
+    51  0011B  C2 A2              	clr	p2.2
+    52                           ;main.c: 19: lcd_enable();
+    53                           
+    54                           	FNCALL	_lcd_cmd,_lcd_enable
+    55                           	line	19
+    56  0011D  12 010C            	lcall	_lcd_enable
+    57                           ;main.c: 20: }
+    58                           
+    59                           	line	20
+    60  00120                     l2:
+    61  00120  22                 	ret
+    62  00121                     f31:
+    63  00121  80 F4              	j	f30
+    64  0000                     f32	equ	0
+    65                           ;	param _dat assigned to r5 on entry
+    66                           	global	_lcd_data
+    67                           	signat	_lcd_data,4216
+    68                           	line	22
+    69  00123                     _lcd_data:
+    70  00123  80 0A              	j	f41
+    71  00125                     f40:
+    72                           ;main.c: 22: void lcd_data(unsigned char dat) {
+    73                           
+    74                           ;main.c: 23: (*((volatile unsigned char*)0x80)) 
+                                 = dat;
+    75                           
+    76                           	line	23
+    77  00125  8D 80              	mov	0+080h,r5
+    78                           ;main.c: 24: (*((volatile unsigned char*)0xA0)) 
+                                 |= 0x02;
+    79                           
+    80                           	line	24
+    81  00127  D2 A1              	setb	p2.1
+    82                           ;main.c: 25: (*((volatile unsigned char*)0xA0)) 
+                                 &= ~0x04;
+    83                           
+    84                           	line	25
+    85  00129  C2 A2              	clr	p2.2
+    86                           ;main.c: 26: lcd_enable();
+    87                           
+    88                           	FNCALL	_lcd_data,_lcd_enable
+    89                           	line	26
+    90  0012B  12 010C            	lcall	_lcd_enable
+    91                           ;main.c: 27: }
+    92                           
+    93                           	line	27
+    94  0012E                     l3:
+    95  0012E  22                 	ret
+    96  0012F                     f41:
+    97  0012F  80 F4              	j	f40
+    98  0000                     f42	equ	0
+    99                           	global	_lcd_init
+   100                           	signat	_lcd_init,88
+   101                           	line	29
+   102  00131                     _lcd_init:
+   103  00131  80 15              	j	f51
+   104  00133                     f50:
+   105                           ;main.c: 29: void lcd_init() {
+   106                           
+   107                           ;main.c: 30: lcd_cmd(0x38);
+   108                           
+   109                           	FNCALL	_lcd_init,_lcd_cmd
+   110                           	line	30
+   111  00133  7D 38              	mov	r5,#56
+   112  00135  12 0115            	lcall	_lcd_cmd
+   113                           
+   114                           ;main.c: 31: lcd_cmd(0x0C);
+   115                           
+   116                           	line	31
+   117  00138  7D 0C              	mov	r5,#12
+   118  0013A  12 0115            	lcall	_lcd_cmd
+   119                           
+   120                           ;main.c: 32: lcd_cmd(0x06);
+   121                           
+   122                           	line	32
+   123  0013D  7D 06              	mov	r5,#6
+   124  0013F  12 0115            	lcall	_lcd_cmd
+   125                           
+   126                           ;main.c: 33: lcd_cmd(0x01);
+   127                           
+   128                           	line	33
+   129  00142  7D 01              	mov	r5,#1
+   130  00144  12 0115            	lcall	_lcd_cmd
+   131                           
+   132                           ;main.c: 34: }
+   133                           
+   134                           	line	34
+   135  00147                     l4:
+   136  00147  22                 	ret
+   137  00148                     f51:
+   138  00148  80 E9              	j	f50
+   139  0000                     f52	equ	0
+   140                           ;	param _s assigned to r4/r5 on entry
+   141                           	global	_lcd_string
+   142                           	signat	_lcd_string,4216
+   143                           	line	36
+   144  0014A                     _lcd_string:
+   145  0014A  80 25              	j	f61
+   146  0014C                     f60:
+   147                           ;main.c: 36: void lcd_string(char *s) {
+   148                           
+   149                           ;main.c: 37: while(*s) lcd_data(*s++);
+   150                           
+   151                           ;	var   _s assigned to ?a_lcd_string+0
+   152                           ;_s stored from WR2
+   153  0014C  8C 25              	mov	?a_lcd_string+0,r4
+   154  0014E  8D 26              	mov	?a_lcd_string+0+1,r5
+   155                           	line	37
+   156  00150  80 13              	jmp	l6
+   157  00152                     l7:
+   158                           	FNCALL	_lcd_string,_lcd_data
+   159  00152  85 25  83          	mov	dph,?a_lcd_string+0
+   160  00155  85 26  82          	mov	dpl,?a_lcd_string+0+1
+   161                           	global	ldc_r5
+   162  00158  12 004F            	call	ldc_r5
+   163  0015B  A3                 	inc	dptr
+   164  0015C  85 83 25           	mov	?a_lcd_string+0,dph
+   165  0015F  85 82 26           	mov	?a_lcd_string+0+1,dpl
+   166  00162  12 0123            	lcall	_lcd_data
+   167                           
+   168  00165                     l6:
+   169  00165  85 25  83          	mov	dph,?a_lcd_string+0
+   170  00168  85 26  82          	mov	dpl,?a_lcd_string+0+1
+   171                           	global	ldc_byte
+   172  0016B  12 0003            	call	ldc_byte
+   173  0016E  70 E2              	bnz	l7
+   174  00170                     l8:
+   175                           ;main.c: 38: }
+   176                           
+   177                           	line	38
+   178  00170                     l5:
+   179  00170  22                 	ret
+   180  00171                     f61:
+   181  00171  80 D9              	j	f60
+   182                           	FNSIZE	_lcd_string,2,0
+   183                           	global	?a_lcd_string
+   184  0000                     f62	equ	0
+   185                           	global	_get_key
+   186                           	signat	_get_key,89
+   187                           	line	42
+   188  00173                     _get_key:
+   189  00173  02 025D            	j	f71
+   190  00176                     f70:
+   191                           ;main.c: 42: char get_key() {
+   192                           
+   193                           ;	var   _val assigned to ?a_get_key+0
+   194                           ;main.c: 44: unsigned char val;
+   195                           
+   196                           ;main.c: 46: (*((volatile unsigned char*)0x90)) 
+                                 = 0xEF;
+   197                           
+   198                           	line	46
+   199  00176  75 90 EF           	mov	0+090h,#239
+   200                           ;main.c: 47: val = (*((volatile unsigned char*)0
+                                 x90)) & 0x0F;
+   201                           
+   202                           	line	47
+   203  00179  E5 90              	mov	a,0+090h
+   204  0017B  54 0F              	anl	a,#0Fh
+   205  0017D  F5 25              	mov	?a_get_key+0,a
+   206                           ;main.c: 48: if(val != 0x0F) {
+   207                           
+   208                           	line	48
+   209  0017F  E5 25              	mov	a,?a_get_key+0
+   210  00181  24 F1              	add	a,#-(15)
+   211  00183  60 02              	bz	u11
+   212  00185  80 02              	jmp	u10
+   213  00187                     u11:
+   214  00187  80 28              	jmp	l10
+   215  00189                     u10:
+   216                           ;main.c: 49: if(val == 0x0E) return '1';
+   217                           
+   218                           	line	49
+   219  00189  E5 25              	mov	a,?a_get_key+0
+   220  0018B  B4 0E 05           	cbne	a,#(14),l11
+   221  0018E  7B 31              	mov	r3,#49
+   222  00190  02 025C            	jmp	l9
+   223  00193                     l11:
+   224                           ;main.c: 50: if(val == 0x0D) return '4';
+   225                           
+   226                           	line	50
+   227  00193  E5 25              	mov	a,?a_get_key+0
+   228  00195  B4 0D 05           	cbne	a,#(13),l12
+   229  00198  7B 34              	mov	r3,#52
+   230  0019A  02 025C            	jmp	l9
+   231  0019D                     l12:
+   232                           ;main.c: 51: if(val == 0x0B) return '7';
+   233                           
+   234                           	line	51
+   235  0019D  E5 25              	mov	a,?a_get_key+0
+   236  0019F  B4 0B 05           	cbne	a,#(11),l13
+   237  001A2  7B 37              	mov	r3,#55
+   238  001A4  02 025C            	jmp	l9
+   239  001A7                     l13:
+   240                           ;main.c: 52: if(val == 0x07) return '*';
+   241                           
+   242                           	line	52
+   243  001A7  E5 25              	mov	a,?a_get_key+0
+   244  001A9  B4 07 05           	cbne	a,#(7),l14
+   245  001AC  7B 2A              	mov	r3,#42
+   246  001AE  02 025C            	jmp	l9
+   247  001B1                     l14:
+   248                           	line	53
+   249  001B1                     l10:
+   250                           ;main.c: 53: }
+   251                           
+   252                           ;main.c: 55: (*((volatile unsigned char*)0x90)) 
+                                 = 0xDF;
+   253                           
+   254                           	line	55
+   255  001B1  75 90 DF           	mov	0+090h,#223
+   256                           ;main.c: 56: val = (*((volatile unsigned char*)0
+                                 x90)) & 0x0F;
+   257                           
+   258                           	line	56
+   259  001B4  E5 90              	mov	a,0+090h
+   260  001B6  54 0F              	anl	a,#0Fh
+   261  001B8  F5 25              	mov	?a_get_key+0,a
+   262                           ;main.c: 57: if(val != 0x0F) {
+   263                           
+   264                           	line	57
+   265  001BA  E5 25              	mov	a,?a_get_key+0
+   266  001BC  24 F1              	add	a,#-(15)
+   267  001BE  60 02              	bz	u21
+   268  001C0  80 02              	jmp	u20
+   269  001C2                     u21:
+   270  001C2  80 26              	jmp	l15
+   271  001C4                     u20:
+   272                           ;main.c: 58: if(val == 0x0E) return '2';
+   273                           
+   274                           	line	58
+   275  001C4  E5 25              	mov	a,?a_get_key+0
+   276  001C6  B4 0E 05           	cbne	a,#(14),l16
+   277  001C9  7B 32              	mov	r3,#50
+   278  001CB  02 025C            	jmp	l9
+   279  001CE                     l16:
+   280                           ;main.c: 59: if(val == 0x0D) return '5';
+   281                           
+   282                           	line	59
+   283  001CE  E5 25              	mov	a,?a_get_key+0
+   284  001D0  B4 0D 05           	cbne	a,#(13),l17
+   285  001D3  7B 35              	mov	r3,#53
+   286  001D5  02 025C            	jmp	l9
+   287  001D8                     l17:
+   288                           ;main.c: 60: if(val == 0x0B) return '8';
+   289                           
+   290                           	line	60
+   291  001D8  E5 25              	mov	a,?a_get_key+0
+   292  001DA  B4 0B 04           	cbne	a,#(11),l18
+   293  001DD  7B 38              	mov	r3,#56
+   294  001DF  80 7B              	jmp	l9
+   295  001E1                     l18:
+   296                           ;main.c: 61: if(val == 0x07) return '0';
+   297                           
+   298                           	line	61
+   299  001E1  E5 25              	mov	a,?a_get_key+0
+   300  001E3  B4 07 04           	cbne	a,#(7),l19
+   301  001E6  7B 30              	mov	r3,#48
+   302  001E8  80 72              	jmp	l9
+   303  001EA                     l19:
+   304                           	line	62
+   305  001EA                     l15:
+   306                           ;main.c: 62: }
+   307                           
+   308                           ;main.c: 64: (*((volatile unsigned char*)0x90)) 
+                                 = 0xBF;
+   309                           
+   310                           	line	64
+   311  001EA  75 90 BF           	mov	0+090h,#191
+   312                           ;main.c: 65: val = (*((volatile unsigned char*)0
+                                 x90)) & 0x0F;
+   313                           
+   314                           	line	65
+   315  001ED  E5 90              	mov	a,0+090h
+   316  001EF  54 0F              	anl	a,#0Fh
+   317  001F1  F5 25              	mov	?a_get_key+0,a
+   318                           ;main.c: 66: if(val != 0x0F) {
+   319                           
+   320                           	line	66
+   321  001F3  E5 25              	mov	a,?a_get_key+0
+   322  001F5  24 F1              	add	a,#-(15)
+   323  001F7  60 02              	bz	u31
+   324  001F9  80 02              	jmp	u30
+   325  001FB                     u31:
+   326  001FB  80 24              	jmp	l20
+   327  001FD                     u30:
+   328                           ;main.c: 67: if(val == 0x0E) return '3';
+   329                           
+   330                           	line	67
+   331  001FD  E5 25              	mov	a,?a_get_key+0
+   332  001FF  B4 0E 04           	cbne	a,#(14),l21
+   333  00202  7B 33              	mov	r3,#51
+   334  00204  80 56              	jmp	l9
+   335  00206                     l21:
+   336                           ;main.c: 68: if(val == 0x0D) return '6';
+   337                           
+   338                           	line	68
+   339  00206  E5 25              	mov	a,?a_get_key+0
+   340  00208  B4 0D 04           	cbne	a,#(13),l22
+   341  0020B  7B 36              	mov	r3,#54
+   342  0020D  80 4D              	jmp	l9
+   343  0020F                     l22:
+   344                           ;main.c: 69: if(val == 0x0B) return '9';
+   345                           
+   346                           	line	69
+   347  0020F  E5 25              	mov	a,?a_get_key+0
+   348  00211  B4 0B 04           	cbne	a,#(11),l23
+   349  00214  7B 39              	mov	r3,#57
+   350  00216  80 44              	jmp	l9
+   351  00218                     l23:
+   352                           ;main.c: 70: if(val == 0x07) return '#';
+   353                           
+   354                           	line	70
+   355  00218  E5 25              	mov	a,?a_get_key+0
+   356  0021A  B4 07 04           	cbne	a,#(7),l24
+   357  0021D  7B 23              	mov	r3,#35
+   358  0021F  80 3B              	jmp	l9
+   359  00221                     l24:
+   360                           	line	71
+   361  00221                     l20:
+   362                           ;main.c: 71: }
+   363                           
+   364                           ;main.c: 73: (*((volatile unsigned char*)0x90)) 
+                                 = 0x7F;
+   365                           
+   366                           	line	73
+   367  00221  75 90 7F           	mov	0+090h,#127
+   368                           ;main.c: 74: val = (*((volatile unsigned char*)0
+                                 x90)) & 0x0F;
+   369                           
+   370                           	line	74
+   371  00224  E5 90              	mov	a,0+090h
+   372  00226  54 0F              	anl	a,#0Fh
+   373  00228  F5 25              	mov	?a_get_key+0,a
+   374                           ;main.c: 75: if(val != 0x0F) {
+   375                           
+   376                           	line	75
+   377  0022A  E5 25              	mov	a,?a_get_key+0
+   378  0022C  24 F1              	add	a,#-(15)
+   379  0022E  60 02              	bz	u41
+   380  00230  80 02              	jmp	u40
+   381  00232                     u41:
+   382  00232  80 24              	jmp	l25
+   383  00234                     u40:
+   384                           ;main.c: 76: if(val == 0x0E) return 'A';
+   385                           
+   386                           	line	76
+   387  00234  E5 25              	mov	a,?a_get_key+0
+   388  00236  B4 0E 04           	cbne	a,#(14),l26
+   389  00239  7B 41              	mov	r3,#65
+   390  0023B  80 1F              	jmp	l9
+   391  0023D                     l26:
+   392                           ;main.c: 77: if(val == 0x0D) return 'B';
+   393                           
+   394                           	line	77
+   395  0023D  E5 25              	mov	a,?a_get_key+0
+   396  0023F  B4 0D 04           	cbne	a,#(13),l27
+   397  00242  7B 42              	mov	r3,#66
+   398  00244  80 16              	jmp	l9
+   399  00246                     l27:
+   400                           ;main.c: 78: if(val == 0x0B) return 'C';
+   401                           
+   402                           	line	78
+   403  00246  E5 25              	mov	a,?a_get_key+0
+   404  00248  B4 0B 04           	cbne	a,#(11),l28
+   405  0024B  7B 43              	mov	r3,#67
+   406  0024D  80 0D              	jmp	l9
+   407  0024F                     l28:
+   408                           ;main.c: 79: if(val == 0x07) return 'D';
+   409                           
+   410                           	line	79
+   411  0024F  E5 25              	mov	a,?a_get_key+0
+   412  00251  B4 07 04           	cbne	a,#(7),l29
+   413  00254  7B 44              	mov	r3,#68
+   414  00256  80 04              	jmp	l9
+   415  00258                     l29:
+   416                           	line	80
+   417  00258                     l25:
+   418                           ;main.c: 80: }
+   419                           
+   420                           ;main.c: 82: return 0;
+   421                           
+   422                           	line	82
+   423  00258  7B 00              	mov	r3,#0
+   424  0025A  80 00              	jmp	l9
+   425                           ;main.c: 83: }
+   426                           
+   427                           	line	83
+   428  0025C                     l9:
+   429  0025C  22                 	ret
+   430  0025D                     f71:
+   431  0025D  02 0176            	j	f70
+   432                           	FNSIZE	_get_key,1,0
+   433                           	global	?a_get_key
+   434  0000                     f72	equ	0
+   435                           	global	_main
+   436                           	signat	_main,88
+   437                           	line	87
+   438  00260                     _main:
+   439  00260  80 69              	j	f81
+   440  00262                     f80:
+   441                           ;main.c: 87: void main() {
+   442                           
+   443                           ;	var   _key assigned to ?a_main+0
+   444                           ;	var   _last_key assigned to ?a_main+1
+   445                           ;main.c: 89: char key;
+   446                           
+   447                           ;main.c: 90: char last_key = 0;
+   448                           
+   449                           	line	90
+   450  00262  75 23  00          	mov	?a_main+1,#0
+   451                           ;	var   _pos assigned to ?a_main+2
+   452                           ;main.c: 91: unsigned char pos = 0;
+   453                           
+   454                           	line	91
+   455  00265  75 24  00          	mov	?a_main+2,#0
+   456                           ;main.c: 93: lcd_init();
+   457                           
+   458                           	FNCALL	_main,_lcd_init
+   459                           	line	93
+   460  00268  12 0131            	lcall	_lcd_init
+   461                           ;main.c: 94: lcd_string("Calculator:");
+   462                           
+   463                           	FNCALL	_main,_lcd_string
+   464                           	line	94
+   465  0026B  7C 01              	mov	r4,#high (0+u19)
+   466  0026D  7D 00              	mov	r5,#low (0+u19)
+   467  0026F  12 014A            	lcall	_lcd_string
+   468                           
+   469                           ;main.c: 95: lcd_cmd(0xC0);
+   470                           
+   471                           	FNCALL	_main,_lcd_cmd
+   472                           	line	95
+   473  00272  7D C0              	mov	r5,#192
+   474  00274  12 0115            	lcall	_lcd_cmd
+   475                           
+   476                           ;main.c: 97: while(1) {
+   477                           
+   478                           	line	97
+   479  00277                     l32:
+   480                           ;main.c: 99: key = get_key();
+   481                           
+   482                           	FNCALL	_main,_get_key
+   483                           	line	99
+   484  00277  12 0173            	lcall	_get_key
+   485  0027A  EB                 	mov	a,r3
+   486  0027B  F5 22              	mov	?a_main+0,a
+   487                           ;main.c: 102: timer++;
+   488                           
+   489                           	global	_timer
+   490                           	line	102
+   491  0027D  05 21              	inc	_timer+1
+   492  0027F  E5 21              	mov	a,_timer+1
+   493  00281  70 02              	jnz	u50
+   494  00283  05 20              	inc	_timer
+   495  00285                     u50:
+   496                           ;main.c: 105: if(key != 0 && key != last_key && 
+                                 timer > 10) {
+   497                           
+   498                           	line	105
+   499  00285  E5 22              	mov	a,?a_main+0
+   500  00287  60 0B              	bz	u61
+   501  00289  80 00              	jmp	u60
+   502  0028B                     u60:
+   503  0028B  E5 22              	mov	a,?a_main+0
+   504  0028D  B5 23  02          	cbne	a,?a_main+1,u70
+   505  00290  80 02              	jmp	u71
+   506  00292                     u70:
+   507  00292  80 02              	jmp	u80
+   508  00294                     u61:
+   509  00294                     u71:
+   510  00294  80 0E              	jmp	u81
+   511  00296                     u80:
+   512  00296  E5 21              	mov	a,_timer+1
+   513  00298  24 F5              	add	a,#low -(11)
+   514  0029A  E5 20              	mov	a,_timer
+   515  0029C  34 FF              	addc	a,#high -(11)
+   516  0029E  50 04              	bnc	u91
+   517  002A0  80 00              	jmp	u90
+   518  002A2                     u90:
+   519  002A2  80 04              	jmp	u100
+   520  002A4                     u81:
+   521  002A4                     u91:
+   522  002A4  80 00              	jmp	u101
+   523  002A6                     u101:
+   524  002A6  80 19              	jmp	l34
+   525  002A8                     u100:
+   526                           ;main.c: 107: if(pos < 16) {
+   527                           
+   528                           	line	107
+   529  002A8  E5 24              	mov	a,?a_main+2
+   530  002AA  24 F0              	add	a,#-010h
+   531  002AC  40 02              	bc	u111
+   532  002AE  80 02              	jmp	u110
+   533  002B0                     u111:
+   534  002B0  80 07              	jmp	l35
+   535  002B2                     u110:
+   536                           ;main.c: 108: lcd_data(key);
+   537                           
+   538                           	FNCALL	_main,_lcd_data
+   539                           	line	108
+   540  002B2  AD 22              	mov	r5,?a_main+0
+   541  002B4  12 0123            	lcall	_lcd_data
+   542                           
+   543                           ;main.c: 109: pos++;
+   544                           
+   545                           	line	109
+   546  002B7  05 24              	inc	?a_main+2
+   547                           	line	110
+   548  002B9                     l35:
+   549                           ;main.c: 110: }
+   550                           
+   551                           ;main.c: 112: last_key = key;
+   552                           
+   553                           	line	112
+   554  002B9  85 22  23          	mov	?a_main+1,?a_main+0
+   555                           ;main.c: 113: timer = 0;
+   556                           
+   557                           	line	113
+   558  002BC  E4                 	clr	a
+   559  002BD  F5 20              	mov	_timer,a
+   560  002BF  F5 21              	mov	_timer+1,a
+   561                           	line	114
+   562  002C1                     l34:
+   563                           ;main.c: 114: }
+   564                           
+   565                           ;main.c: 116: if(key == 0) {
+   566                           
+   567                           	line	116
+   568  002C1  E5 22              	mov	a,?a_main+0
+   569  002C3  70 03              	bnz	l36
+   570                           ;main.c: 117: last_key = 0;
+   571                           
+   572                           	line	117
+   573  002C5  75 23  00          	mov	?a_main+1,#0
+   574                           	line	118
+   575  002C8                     l36:
+   576                           	line	119
+   577  002C8                     l31:
+   578                           	line	97
+   579  002C8  80 AD              	jmp	l32
+   580  002CA                     l33:
+   581                           ;main.c: 118: }
+   582                           
+   583                           ;main.c: 119: }
+   584                           
+   585                           ;main.c: 120: }
+   586                           
+   587                           	line	120
+   588  002CA                     l30:
+   589  002CA  22                 	ret
+   590  002CB                     f81:
+   591  002CB  80 95              	j	f80
+   592                           	FNSIZE	_main,3,0
+   593                           	global	?a_main
+   594  0000                     f82	equ	0
+   595                           	psect	strings,class=CODE
+   596                           	psect	strings
+   597  00100                     u19:
+   598  00100  43 61 6C 63 75 6C  	db	"Calculator:",0
+              61 74 6F 72 3A 00  
+   599                           	psect	rbss,class=DATA,space=1
+   600                           	psect	rbss
+   601                           	global	_timer
+   602  00020                     _timer:
+   603  00020                     	ds	2
+
+
+HI-TECH Software 8051 Macro Assembler V9.60                                Page 2
+Symbol Table                                           Mon Mar 23 18:54:45 2026
+
+       ?a_main 00022   ?a_lcd_string 00025              l1 00112  
+            l2 00120              l3 0012E              l4 00147  
+            l5 00170              l6 00165              l7 00152  
+            l8 00170              l9 0025C             f20 0010E  
+           f21 00113             f30 00117             f22 00000  
+           f31 00121             f40 00125             f32 00000  
+           f41 0012F             f50 00133             f42 00000  
+           f51 00148             f60 0014C             f52 00000  
+           f61 00171             f70 00176             f62 00000  
+           f71 0025D             f80 00262             f72 00000  
+           f81 002CB             f82 00000             l10 001B1  
+           l11 00193             l20 00221             l12 0019D  
+           l21 00206             l13 001A7             l30 002CA  
+           l22 0020F             l14 001B1             l31 002C8  
+           l23 00218             l15 001EA             l32 00277  
+           l24 00221             l16 001CE             l33 002CA  
+           l25 00258             l17 001D8             l34 002C1  
+           l26 0023D             l18 001E1             l35 002B9  
+           l27 00246             l19 001EA             l36 002C8  
+           l28 0024F             l29 00258             u10 00189  
+           u11 00187             u20 001C4             u21 001C2  
+           u30 001FD             u31 001FB             u40 00234  
+           u41 00232             u50 00285             u19 00100  
+           u60 0028B             u61 00294             u70 00292  
+           u71 00294             u80 00296             u81 002A4  
+           u90 002A2             u91 002A4       _lcd_data 00123  
+     _lcd_init 00131            u100 002A8            u101 002A6  
+          u110 002B2            u111 002B0      ?a_get_key 00025  
+stack_internal 00001           _main 00260     _lcd_enable 0010C  
+   _lcd_string 0014A        _lcd_cmd 00115        _get_key 00173  
+        _timer 00020        ldc_byte 00003          ldc_r5 0004F  
+
