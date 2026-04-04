@@ -1,0 +1,21 @@
+﻿  Assembling LR3.asm...
+  LR3.vcxproj -> D:\3 курс\АСВТ\Земцов\Лабы\ЛР3\LR3\Debug\LR3.exe
+D:\Visual Studio\MSBuild\Microsoft\VC\v170\Microsoft.MetaGen.targets(52,5): warning MSB4018: непредвиденная ошибка при выполнении задачи "METAGEN".
+D:\Visual Studio\MSBuild\Microsoft\VC\v170\Microsoft.MetaGen.targets(52,5): warning MSB4018: System.BadImageFormatException: Не удалось загрузить файл или сборку "file:///D:\3 курс\АСВТ\Земцов\Лабы\ЛР3\LR3\Debug\LR3.exe" либо одну из их зависимостей. Ожидалось, что модуль содержит манифест сборки.
+D:\Visual Studio\MSBuild\Microsoft\VC\v170\Microsoft.MetaGen.targets(52,5): warning MSB4018: Имя файла: 'file:///D:\3 курс\АСВТ\Земцов\Лабы\ЛР3\LR3\Debug\LR3.exe'
+D:\Visual Studio\MSBuild\Microsoft\VC\v170\Microsoft.MetaGen.targets(52,5): warning MSB4018:    в System.Reflection.RuntimeAssembly._nLoad(AssemblyName fileName, String codeBase, Evidence assemblySecurity, RuntimeAssembly locationHint, StackCrawlMark& stackMark, IntPtr pPrivHostBinder, Boolean throwOnFileNotFound, Boolean forIntrospection, Boolean suppressSecurityChecks)
+D:\Visual Studio\MSBuild\Microsoft\VC\v170\Microsoft.MetaGen.targets(52,5): warning MSB4018:    в System.Reflection.RuntimeAssembly.InternalLoadAssemblyName(AssemblyName assemblyRef, Evidence assemblySecurity, RuntimeAssembly reqAssembly, StackCrawlMark& stackMark, IntPtr pPrivHostBinder, Boolean throwOnFileNotFound, Boolean forIntrospection, Boolean suppressSecurityChecks)
+D:\Visual Studio\MSBuild\Microsoft\VC\v170\Microsoft.MetaGen.targets(52,5): warning MSB4018:    в System.Reflection.RuntimeAssembly.InternalLoadFrom(String assemblyFile, Evidence securityEvidence, Byte[] hashValue, AssemblyHashAlgorithm hashAlgorithm, Boolean forIntrospection, Boolean suppressSecurityChecks, StackCrawlMark& stackMark)
+D:\Visual Studio\MSBuild\Microsoft\VC\v170\Microsoft.MetaGen.targets(52,5): warning MSB4018:    в System.Reflection.Assembly.ReflectionOnlyLoadFrom(String assemblyFile)
+D:\Visual Studio\MSBuild\Microsoft\VC\v170\Microsoft.MetaGen.targets(52,5): warning MSB4018:    в Microsoft.Build.CPPTasks.MetaDumper.GenerateAssemblyMeta(String theModule, String refSearchPath)
+D:\Visual Studio\MSBuild\Microsoft\VC\v170\Microsoft.MetaGen.targets(52,5): warning MSB4018:    в Microsoft.Build.CPPTasks.MetaDumper.GenerateAssemblyMeta(String theModule, String refSearchPath)
+D:\Visual Studio\MSBuild\Microsoft\VC\v170\Microsoft.MetaGen.targets(52,5): warning MSB4018:    в Microsoft.Build.CPPTasks.AsmMeta.CreateMeta(String assemblyFileName, String searchPath, String metaFileName)
+D:\Visual Studio\MSBuild\Microsoft\VC\v170\Microsoft.MetaGen.targets(52,5): warning MSB4018:    в Microsoft.Build.CPPTasks.METAGEN.Execute()
+D:\Visual Studio\MSBuild\Microsoft\VC\v170\Microsoft.MetaGen.targets(52,5): warning MSB4018:    в Microsoft.Build.BackEnd.TaskExecutionHost.Execute()
+D:\Visual Studio\MSBuild\Microsoft\VC\v170\Microsoft.MetaGen.targets(52,5): warning MSB4018:    в Microsoft.Build.BackEnd.TaskBuilder.<ExecuteInstantiatedTask>d__26.MoveNext()
+D:\Visual Studio\MSBuild\Microsoft\VC\v170\Microsoft.MetaGen.targets(52,5): warning MSB4018: 
+D:\Visual Studio\MSBuild\Microsoft\VC\v170\Microsoft.MetaGen.targets(52,5): warning MSB4018: Предупреждение: регистрация привязки сборок выключена.
+D:\Visual Studio\MSBuild\Microsoft\VC\v170\Microsoft.MetaGen.targets(52,5): warning MSB4018: Чтобы включить регистрацию ошибок привязки сборок, установите значение параметра реестра [HKLM\Software\Microsoft\Fusion!EnableLog] (DWORD) в 1.
+D:\Visual Studio\MSBuild\Microsoft\VC\v170\Microsoft.MetaGen.targets(52,5): warning MSB4018: Примечание. Регистрация ошибок привязки сборок может привести к некоторому снижению производительности.
+D:\Visual Studio\MSBuild\Microsoft\VC\v170\Microsoft.MetaGen.targets(52,5): warning MSB4018: Чтобы отключить эту функцию, удалите параметр реестра [HKLM\Software\Microsoft\Fusion!EnableLog].
+D:\Visual Studio\MSBuild\Microsoft\VC\v170\Microsoft.MetaGen.targets(52,5): warning MSB4018: 
