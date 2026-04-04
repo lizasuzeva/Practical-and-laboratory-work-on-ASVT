@@ -1,0 +1,61 @@
+__Lrdata 23 FFFFFFE0 DATA
+__Hrbss 23 0 DATA
+__Lrbss 20 0 DATA
+__Birdata 3 FFFFFFE0 DATA
+__Hirdata 23 FFFFFFE0 DATA
+__Lirdata 23 FFFFFFE0 DATA
+powerup 58 0 CODE
+__Htext 23 0
+__Ltext 23 0
+__Hcode 23 0
+__Lcode 23 0
+__Hdata 100 0 CODE
+__Hconst 100 0 CODE
+__Ldata 100 0 CODE
+__Lconst 100 0 CODE
+__Bbss 23 0 XDATA
+__Hbss 23 0 XDATA
+__Hstrings 100 0 CODE
+__Lbss 23 0 XDATA
+__Lstrings 100 0 CODE
+__S0 100 0
+start1 46 0 CODE
+__Hnvram 23 0 XDATA
+small_model 1 0
+__Lnvram 23 0 XDATA
+__Hheap 23 0 XDATA
+__Lheap 23 0 XDATA
+_main 3 0 CODE
+?a_main 20 0 DATA
+_exit 55 0 CODE
+start 0 0 CODE
+intlevel0 0 0
+__Brbit 20 20 BITSEG
+__Hrbit 0 20 BITSEG
+intlevel1 0 0
+__Hvectors 3 0 CODE
+__Lrbit 0 20 BITSEG
+__Lvectors 0 0 CODE
+__Bidata 23 0 DATA
+__Hidata 23 0 DATA
+__Lidata 23 0 DATA
+stack_internal 1 0
+__Brdata 3 FFFFFFE0 DATA
+__Hrdata 23 FFFFFFE0 DATA
+%segments
+vectors 0 5A CODE
+rbit 0 2 BITSEG
+%locals
+Z:\main_0.obj
+C:\Users\user\DOCUME~1\NATION~1\CIRCUI~2.0\MCUWOR~1\pr6\project1\main.c
+3 3 0 CODE
+5 5 0 CODE
+8 B 0 CODE
+9 E 0 CODE
+12 11 0 CODE
+13 20 0 CODE
+14 29 0 CODE
+15 2B 0 CODE
+12 35 0 CODE
+18 41 0 CODE
+19 43 0 CODE
