@@ -1,0 +1,10 @@
+﻿  Assembling min_func.asm...
+min_func.asm(1): error A2008: syntax error : .
+min_func.asm(2): error A2008: syntax error : .
+min_func.asm(15): error A2070: invalid instruction operands
+min_func.asm(29): error A2070: invalid instruction operands
+min_func.asm(49): error A2070: invalid instruction operands
+min_func.asm(62): error A2070: invalid instruction operands
+min_func.asm(78): error A2070: invalid instruction operands
+min_func.asm(80): warning A6004: procedure argument or local not referenced : C
+D:\Visual Studio\MSBuild\Microsoft\VC\v170\BuildCustomizations\masm.targets(70,5): error MSB3721: выход из команды "ml64.exe /c /nologo /Zi /Fo"LR4\x64\Debug\min_func.obj" /W3 /errorReport:prompt  /Tamin_func.asm" с кодом "1".
