@@ -1,0 +1,99 @@
+MAIN                                                                                                          PAGE 1
+
+  0090                 1    P1      EQU 090H
+  00A0                 2    P2      EQU 0A0H
+  00B0                 3    P3      EQU 0B0H
+                       4    
+0000                   5    ORG 0000H
+0000 020030            6    LJMP MAIN
+                       7    
+0003                   8    ORG 0003H
+0003 020068            9    LJMP INT0_ISR
+                      10    
+0030                  11    ORG 0030H
+                      12    
+0030                  13    MAIN:
+                      14    
+0030 7590FF           15    MOV P1,#0FFH
+0033 75A080           16    MOV P2,#80H
+0036 75B0FF           17    MOV P3,#0FFH
+                      18    
+0039 D288             19    SETB 88H
+003B D2A8             20    SETB 0A8H
+003D D2AF             21    SETB 0AFH
+                      22    
+003F 7F00             23    MOV R7,#00H      ; ?????
+0041 7E00             24    MOV R6,#00H      ; ??????? ???????? 0..84
+                      25    
+0043                  26    LOOP:
+                      27    
+                      28    ; ?????? ???
+0043 D2B6             29    SETB 0B6H
+0045 00               30    NOP
+0046 00               31    NOP
+0047 C2B6             32    CLR 0B6H
+                      33    
+0049                  34    WAIT1:
+0049 20B7FD           35    JB 0B7H,WAIT1
+                      36    
+                      37    ; ===== ??????? ??????? =====
+                      38    
+004C EF               39    MOV A,R7
+004D 6009             40    JZ DOWNMODE
+                      41    
+004F                  42    UPMODE:
+004F EE               43    MOV A,R6
+0050 B45402           44    CJNE A,#84,INC1
+0053 8007             45    SJMP READY
+                      46    
+0055                  47    INC1:
+0055 0E               48    INC R6
+0056 8004             49    SJMP READY
+                      50    
+0058                  51    DOWNMODE:
+0058 EE               52    MOV A,R6
+0059 6001             53    JZ READY
+005B 1E               54    DEC R6
+                      55    
+005C                  56    READY:
+                      57    
+005C E590             58    MOV A,P1
+MAIN                                                                                                          PAGE 2
+
+                      59    
+005E C3               60    CLR C
+005F 9E               61    SUBB A,R6      ; ???????? ????
+                      62    
+0060 5002             63    JNC OK1
+0062 7400             64    MOV A,#00H
+                      65    
+0064                  66    OK1:
+0064 F5A0             67    MOV P2,A
+0066 80DB             68    SJMP LOOP
+                      69    
+0068                  70    INT0_ISR:
+                      71    
+0068 0F               72    INC R7
+0069 EF               73    MOV A,R7
+006A 5401             74    ANL A,#01H
+006C FF               75    MOV R7,A
+                      76    
+006D 32               77    RETI
+                      78    
+                      79    END
+
+VERSION 1.2k ASSEMBLY COMPLETE, 0 ERRORS FOUND
+MAIN                                                                                                          PAGE 3
+
+DOWNMODE . . . . . . . . . . . .  C ADDR  0058H  
+INC1 . . . . . . . . . . . . . .  C ADDR  0055H  
+INT0_ISR . . . . . . . . . . . .  C ADDR  0068H  
+LOOP . . . . . . . . . . . . . .  C ADDR  0043H  
+MAIN . . . . . . . . . . . . . .  C ADDR  0030H  
+OK1. . . . . . . . . . . . . . .  C ADDR  0064H  
+P1 . . . . . . . . . . . . . . .    NUMB  0090H  
+P2 . . . . . . . . . . . . . . .    NUMB  00A0H  
+P3 . . . . . . . . . . . . . . .    NUMB  00B0H  
+READY. . . . . . . . . . . . . .  C ADDR  005CH  
+UPMODE . . . . . . . . . . . . .  C ADDR  004FH  NOT USED  
+WAIT1. . . . . . . . . . . . . .  C ADDR  0049H  
